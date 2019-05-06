@@ -1,0 +1,35 @@
+{
+  "name": "pretty-express-router",
+  "version": "0.0.1",
+  "description": "This package allows to generate express routers with a convenient routing file defining all routes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinlevesque/pretty-express-router.git"
+  },
+  "keywords": [
+    "express",
+    "router",
+    "routing"
+  ],
+  "author": "Martin Levesque",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinlevesque/pretty-express-router/issues"
+  },
+  "homepage": "https://github.com/martinlevesque/pretty-express-router#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "expect.js": "^0.3.1",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {}
+}
