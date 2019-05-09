@@ -25,7 +25,7 @@ const app = express();
 expressRouter(app, routes);
 ```
 
-The *expressRouter* method generate the proper express routers,
+The *expressRouter* method generates the proper express routers,
 and *routes.js* is defined as follows:
 
 ```
@@ -81,7 +81,7 @@ module.exports = {
 expressRouter(appOrRouter, routes)
 ```
 
-*appOrRouter* can be either an express application or an express router.
+*appOrRouter* can be either an express application or express router.
 *routes* are the routes definitions, an hash object (see the example, routes.js).
 
 
