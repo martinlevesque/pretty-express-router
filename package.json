@@ -1,6 +1,6 @@
 {
   "name": "pretty-express-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This package allows to generate express routers with a convenient routing file defining all routes.",
   "main": "index.js",
   "scripts": {

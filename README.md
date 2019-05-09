@@ -25,25 +25,25 @@ const app = express();
 expressRouter(app, routes);
 ```
 
-where *routes.js* is defined as follows:
+The *expressRouter* method generate the proper express routers,
+and *routes.js* is defined as follows:
 
 ```
 // routes.js:
+const front = require('./front');
+const categories = require('./categories/index');
+const subcat = require('./categories/insubcat/index');
 
-function inlineRoute(req, res) {
-  res.json({});
-}
-
+// the following defines all routes
 module.exports = {
-  '* /': require('./testRoutes').allMethods,   // all HTTP methods resquested to /
-  'get *': require('./testRoutes').allGet,     // get requests to all paths
-  'get /inline': inlineRoute,                  
-  'get /login': require('./testRoutes').login,
-  categories: {                                 // defines a context "/categories/"
-    'get *': require('./categories/index').all, // all get requests to /categories/
-    'get /what': require('./categories/index').what,
-    "insubcat": {                               // /categories/insubcat
-      "get /whatsub": require('./categories/insubcat/index').whatsub
+  '* /': front.allMethods,            // all HTTP methods resquested to /
+  'get *': front.allGet,              // get requests to all paths
+  'get /login': front.login,
+  categories: {                       // defines a context "/categories/"
+    'get *': categories.all,          // all get requests to /categories/
+    'get /what': categories.what,
+    "insubcat": {                     // /categories/insubcat
+      "get /whatsub": subcat.whatsub
     }
   }
 };
@@ -52,7 +52,7 @@ module.exports = {
 *testRoutes* in this example is:
 
 ```
-// testRoutes.js:
+// front.js:
 function allGet(req, res, next) {
   console.log(`all get...`)
   next();
@@ -82,7 +82,7 @@ expressRouter(appOrRouter, routes)
 ```
 
 *appOrRouter* can be either an express application or an express router.
-*routes* are the routes definitions, an hash object (see the example).
+*routes* are the routes definitions, an hash object (see the example, routes.js).
 
 
 ## License
