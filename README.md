@@ -36,6 +36,7 @@ const subcat = require('./categories/insubcat/index');
 
 // the following defines all routes
 module.exports = {
+  'middlewares': [middleware1, middleware2],
   '* /': front.allMethods,            // all HTTP methods resquested to /
   'get *': front.allGet,              // get requests to all paths
   'get /login': front.login,
@@ -43,6 +44,7 @@ module.exports = {
     'get *': categories.all,          // all get requests to /categories/
     'get /what': categories.what,
     "insubcat": {                     // /categories/insubcat
+      "middlewares": [middleware3],
       "get /whatsub": subcat.whatsub
     }
   }
@@ -74,6 +76,10 @@ module.exports = {
 }
 
 ```
+
+Also notice that *middleware1* and *middleware2* are middlewares defined
+in context "/" while *middleware3* is a middleware for "/categories/insubcat/".
+
 
 ## API
 
