@@ -3,7 +3,7 @@
 
 [![Build status](https://travis-ci.org/martinlevesque/pretty-express-router.svg?branch=master)](https://travis-ci.org/martinlevesque/pretty-express-router)
 
-This package allows to generate express routers with a convenient routing file defining all routes.
+This package allows to generate express routers with a convenient routing file defining all routes. Allows to attach middlewares at the context and specific route levels.
 
 ## Installation
 
@@ -39,7 +39,10 @@ module.exports = {
   'middlewares': [middleware1, middleware2],
   '* /': front.allMethods,            // all HTTP methods resquested to /
   'get *': front.allGet,              // get requests to all paths
-  'get /login': front.login,
+  'get /login': {                     // has a middleware specific to the route
+    handler: front.login,
+    middlewares: [loginMiddleware]
+  },
   categories: {                       // defines a context "/categories/"
     'get *': categories.all,          // all get requests to /categories/
     'get /what': categories.what,
@@ -79,6 +82,7 @@ module.exports = {
 
 Also notice that *middleware1* and *middleware2* are middlewares defined
 in context "/" while *middleware3* is a middleware for "/categories/insubcat/".
+Also, the get /login has a middleware specific to its route (loginMiddleware).
 
 
 ## API
