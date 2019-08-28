@@ -1,8 +1,6 @@
 # pretty-express-router
 [![NPM](https://nodei.co/npm/pretty-express-router.png)](https://nodei.co/npm/pretty-express-router/)
 
-[![Build status](https://travis-ci.org/martinlevesque/pretty-express-router.svg?branch=master)](https://travis-ci.org/martinlevesque/pretty-express-router)
-
 [![Actions Status](https://github.com/martinlevesque/pretty-express-router/workflows/test/badge.svg)](https://github.com/martinlevesque/pretty-express-router/actions)
 
 This package allows to generate express routers with a convenient routing file defining all routes. Allows to attach middlewares at the context and specific route levels.
